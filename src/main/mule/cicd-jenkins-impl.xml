@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="625a8d57-c945-4fa3-938f-2d2f079895ef" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cicd-jenkins-implFlow" doc:id="2cdcf6ae-0718-41b1-9b5f-ca912dae7fd1" >
+		<http:listener doc:name="Listener" doc:id="f85bde40-6277-401f-82b2-915623bad2b5" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e5e040b4-7157-4418-8692-4ba60db2a79b" message="Request Received"/>
+		<set-payload value='#["Success"]' doc:name="Set Payload" doc:id="11b03cc3-ccd3-4813-933c-59c8736c1901" />
+		<logger level="INFO" doc:name="Logger" doc:id="8dd8ecfe-963e-446c-878a-60f67105a1f5" message="added logger for logging the payload"/>
+	</flow>
+</mule>
