@@ -44,6 +44,7 @@
 							<key>value</key>
 						</properties>
 					</cloudHubDeployment>
+					<classifier>mule-application</classifier>
 				</configuration>
 			</plugin>
 		</plugins>
